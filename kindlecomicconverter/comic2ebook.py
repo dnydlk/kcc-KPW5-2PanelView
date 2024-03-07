@@ -193,7 +193,8 @@ def buildHTML(path, imgfile, imgfilepath):
         for box in boxes:
             f.writelines(["<div class=\"PV-P\" id=\"" + box + "-P\" style=\"" + additionalStyle + "\">\n",
                           "<img style=\"" + boxStyles[box] + "\" src=\"", "../" * backref, "Images/", postfix,
-                          imgfile, "\" width=\"" + str(size[0]) + "\" height=\"" + str(size[1]) + "\"/>\n", 
+                        #   imgfile, "\" width=\"" + str(size[0]) + "\" height=\"" + str(size[1]) + "\"/>\n", 
+                          imgfile, "\" width=\"" + str(size[0] / 1.5) + "\" height=\"" + str(size[1] / 1.5) + "\"/>\n", # Changed size to make panel view to work
                           "</div>\n"])
     f.writelines(["</body>\n",
                   "</html>\n"])
