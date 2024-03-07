@@ -195,7 +195,7 @@ OTHER:
 #### Standalone `kcc-c2e.py` usage for Two Panel View Mode:
 
 ```
-Personal usage: kcc-c2e --profile KPW5 --manga-style --two-panel --splitter 2 --cropping 2 --croppingpower 2 --format MOBI' [input]
+Personal usage: kcc-c2e --profile KPW5 --manga-style --two-panel --splitter 2 --cropping 2 --croppingpower 2 --format MOBI [input]
 
 MANDATORY:
   input                 Full path to comic folder or file(s) to be processed.
