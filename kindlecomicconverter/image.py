@@ -88,7 +88,7 @@ class ProfileData:
         'KPW': ("Kindle Paperwhite 1/2", (758, 1024), Palette16, 1.8),
         'KV': ("Kindle Paperwhite 3/4/Voyage/Oasis", (1072, 1448), Palette16, 1.8),
         # 'KPW5': ("Kindle Paperwhite 5/Signature Edition", (1236, 1648), Palette16, 1.8),
-        'KPW5': ("Kindle Paperwhite 5/Signature Edition", (1236 * 1.5, 1648 * 1.5), Palette16, 1.8), # 1.5x for HQ Panel View
+        'KPW5': ("Kindle Paperwhite 5/Signature Edition", (1854, 2472), Palette16, 1.8), # 1.5x for HQ Panel View
         'KO': ("Kindle Oasis 2/3", (1264, 1680), Palette16, 1.8),
         'KS': ("Kindle Scribe", (1860, 2480), Palette16, 1.8),
         'KoMT': ("Kobo Mini/Touch", (600, 800), Palette16, 1.8),
