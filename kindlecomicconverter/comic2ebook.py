@@ -54,6 +54,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 def main(argv=None):
+    print("comic2ebook.py ~ def main(sys.argv[1:])\n")
     global options
     parser = makeParser()
     args = parser.parse_args(argv)
@@ -78,6 +79,7 @@ def main(argv=None):
 
 
 def buildHTML(path, imgfile, imgfilepath):
+    print("comic2ebook.py ~ def buildHTML(path, imgfile, imgfilepath)\n")
     imgfilepath = md5Checksum(imgfilepath)
     filename = getImageFileName(imgfile)
     deviceres = options.profileData[1]
@@ -124,6 +126,7 @@ def buildHTML(path, imgfile, imgfilepath):
     if options.iskindle and options.panelview:
         if options.autoscale:
             size = (getPanelViewResolution(imgsize, deviceres))
+            print("    size = (getPanelViewResolution(imgsize, deviceres)):\n        ", size)
         else:
             if options.hq:
                 size = imgsize
@@ -190,7 +193,7 @@ def buildHTML(path, imgfile, imgfilepath):
         for box in boxes:
             f.writelines(["<div class=\"PV-P\" id=\"" + box + "-P\" style=\"" + additionalStyle + "\">\n",
                           "<img style=\"" + boxStyles[box] + "\" src=\"", "../" * backref, "Images/", postfix,
-                          imgfile, "\" width=\"" + str(size[0]) + "\" height=\"" + str(size[1]) + "\"/>\n",
+                          imgfile, "\" width=\"" + str(size[0]) + "\" height=\"" + str(size[1]) + "\"/>\n", 
                           "</div>\n"])
     f.writelines(["</body>\n",
                   "</html>\n"])
@@ -421,6 +424,7 @@ def buildOPF(dstdir, title, filelist, cover=None):
 
 
 def buildEPUB(path, chapternames, tomenumber):
+    print("comic2ebook.py ~ def buildEPUB(path, chapternames, tomenumber)\n")
     filelist = []
     chapterlist = []
     cover = None
@@ -748,13 +752,18 @@ def getTopMargin(deviceres, size):
 
 
 def getPanelViewResolution(imagesize, deviceres):
+    print("comic2ebook.py ~ def getPanelViewResolution(imagesize, deviceres)\n")
     scale = float(deviceres[0]) / float(imagesize[0])
+    print("    scale: ", scale)
+    print(f"    returned: int(deviceres[0]): {int(deviceres[0])}, int(scale * imagesize[1]): {int(scale * imagesize[1])}")
     return int(deviceres[0]), int(scale * imagesize[1])
 
 
 def getPanelViewSize(deviceres, size):
+    print("comic2ebook.py ~ def getPanelViewSize(deviceres, size)\n")
     x = int(deviceres[0] / 2 - size[0] / 2) / deviceres[0] * 100
     y = int(deviceres[1] / 2 - size[1] / 2) / deviceres[1] * 100
+    print(f"    returned: {str(round(x, 1))}, {str(round(y, 1))}")
     return str(int(x)), str(int(y))
 
 
@@ -932,6 +941,7 @@ def makeZIP(zipfilename, basedir, isepub=False):
 
 
 def makeParser():
+    print("comic2ebook.py ~ def makeParser()\n")
     psr = ArgumentParser(prog="kcc-c2e", usage="kcc-c2e [options] [input]", add_help=False)
 
     mandatory_options = psr.add_argument_group("MANDATORY")
@@ -1009,6 +1019,7 @@ def makeParser():
 
     other_options.add_argument("-h", "--help", action="help",
                                help="Show this help message and exit")
+
 
     return psr
 
@@ -1133,6 +1144,7 @@ def checkPre(source):
 
 
 def makeBook(source, qtgui=None):
+    print("comic2ebook.py ~ def makeBook(source, qtgui=None)\n")
     global GUI
     GUI = qtgui
     if GUI:
