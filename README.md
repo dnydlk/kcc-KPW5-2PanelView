@@ -192,6 +192,28 @@ OTHER:
 
 ```
 
+#### Standalone `kcc-c2e.py` usage for Two Panel View Mode:
+
+```
+Personal usage: kcc-c2e --profile KPW5 --manga-style --two-panel --splitter 2 --cropping 2 --croppingpower 2 --format MOBI' [input]
+
+MANDATORY:
+  input                 Full path to comic folder or file(s) to be processed.
+
+MAIN:
+  -p PROFILE, --profile PROFILE
+                        Device profile (Available options: KPW5) [Default=KV]
+  -m, --manga-style     Manga style (right-to-left reading and splitting)
+  -q, --hq              Try to increase the quality of magnification
+  -2, --two-panel       Display two not four panels in Panel View mode
+
+PROCESSING:
+  -c CROPPING, --cropping CROPPING
+                        Set cropping mode. 0: Disabled 1: Margins 2: Margins + page numbers [Default=2]
+  --cp CROPPINGP, --croppingpower CROPPINGP
+                        Set cropping power [Default=1.0]
+```
+
 ### Standalone `kcc-c2p.py` usage:
 
 ```
